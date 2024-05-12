@@ -12,3 +12,5 @@ CHOICES = {
     5: 0.7,
 }
 
+QUESTIONS = 0
+
