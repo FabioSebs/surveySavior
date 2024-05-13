@@ -8,9 +8,10 @@ from mock.utils import GetRandomChoice, GetRandomPersonalChoices
 class GFormFiller(WebScraper):
     def perform_scraping(self):
         # navigating to form
-        next_button = self.driver.find_element(By.CSS_SELECTOR, "div.ThHDze div.DE3NNc div.uArJ5e")
+        time.sleep(4)
+        next_button = self.driver.find_element(By.CSS_SELECTOR, "div.uArJ5e")
         next_button.click()
-        time.sleep(2)
+        time.sleep(4)
 
         for _ in range(6):
 
@@ -32,7 +33,7 @@ class GFormFiller(WebScraper):
 
         
             # go next section
-            next_buttons = self.driver.find_elements(By.CSS_SELECTOR, "div.ThHDze div.DE3NNc div.uArJ5e") 
+            next_buttons = self.driver.find_elements(By.CSS_SELECTOR, "div.uArJ5e") 
             for button in next_buttons:
                 try:
                     if button.text == "Berikutnya":
@@ -59,7 +60,7 @@ class GFormFiller(WebScraper):
             pass
         
         # go next section
-        next_buttons = self.driver.find_elements(By.CSS_SELECTOR, "div.ThHDze div.DE3NNc div.uArJ5e") 
+        next_buttons = self.driver.find_elements(By.CSS_SELECTOR, "div.uArJ5e") 
         for button in next_buttons:
             try:
                 if button.text == "Kirim":

@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+import chromedriver_autoinstaller
 import time
 import json
 
@@ -38,3 +39,6 @@ class WebScraper:
             self.write_json()
         finally:
             self.close_driver()
+
+def __init__():
+    chromedriver_autoinstaller.install()
