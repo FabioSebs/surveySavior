@@ -7,7 +7,7 @@ def main():
 
     gformFiller = GFormFiller(
         fname="answers",
-        url="https://forms.gle/n57G9i4PQj5g4qZe9",
+        url="https://forms.gle/XfyapNCV8QDytwjj9",
     )
 
     

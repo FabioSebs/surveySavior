@@ -13,7 +13,7 @@ class GFormFiller(WebScraper):
         next_button.click()
         time.sleep(4)
 
-        for _ in range(6):
+        for _ in range(7):
 
             # filling out sections
             section_one_form = self.driver.find_elements(By.CSS_SELECTOR, "div.lrKTG div.o3Dpx div.Qr7Oae")
@@ -42,6 +42,7 @@ class GFormFiller(WebScraper):
                     pass
         
         # filling out personal info
+        time.sleep(4)
         personal_info_form = self.driver.find_elements(By.CSS_SELECTOR, "div.lrKTG div.o3Dpx div.Qr7Oae")
 
         for idx, question in enumerate(personal_info_form):
