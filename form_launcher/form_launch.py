@@ -7,29 +7,34 @@ from mock.utils import GetRandomChoice, GetRandomPersonalChoices
 
 class GFormFiller(WebScraper):
     def perform_scraping(self):
-        # navigating to form
-        time.sleep(4)
+        time.sleep(4) # let dom load
         next_button = self.driver.find_element(By.CSS_SELECTOR, "div.uArJ5e")
         next_button.click()
-        time.sleep(4)
 
-        for _ in range(7):
+        time.sleep(4) # let dom load
+        
+        iterator = 0
 
-            # filling out sections
+        for _ in range(7): # 6 sections - the last one (personal info is seperate logic)
+            
+            # find form and loop through questions
             section_one_form = self.driver.find_elements(By.CSS_SELECTOR, "div.lrKTG div.o3Dpx div.Qr7Oae")
-
             for question in section_one_form:
-                choice = GetRandomChoice()
+                choice = GetRandomChoice(i=iterator) # getting question
                 answers = question.find_elements(By.CSS_SELECTOR, "label.T5pZmf")
+                
                 for answer in answers:
                     try:
                         labelNo = answer.find_element(By.CSS_SELECTOR, "div.Zki2Ve")
                         if choice == int(labelNo.text):
                             answer.find_element(By.CSS_SELECTOR, "div.eRqjfd").click()
                             pass
+
                         pass
                     except Exception as e:
                         pass
+                iterator += 1
+
 
         
             # go next section

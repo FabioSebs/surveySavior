@@ -4,9 +4,4 @@ class Generator():
         pass
 
     def gen_form():
-        # TODO: generate json item field
-        # TODO: number of iterations
-        # TODO: mission get my gfrom filled out
-        # TODO: have raw data
-        # TODO: show roozebeh 
         pass

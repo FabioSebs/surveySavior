@@ -1,11 +1,26 @@
 import random
-from mock.constants import CHOICES
+from mock.constants import CHOICES, LEGIT_RESPONSE
 
 
-def GetRandomChoice():
-    return random.choices(list(CHOICES.keys()), weights=list(CHOICES.values()), k=1)[0]
+def GetRandomChoice(i : int):
+    choice = 0
+    try:
+        choice = LEGIT_RESPONSE[i]
+    except:
+        choice = random.randint(1,5)
+
+    # add some spice
+    if random.randint(1,5) > 3 and choice > 3 and choice != 5:
+        choice+=1
+    
+    if random.randint(1,5) < 3 and choice < 3 and choice != 1:
+        choice-=1
+    
+    return choice
+    # return random.choices(list(CHOICES.keys()), weights=list(CHOICES.values()), k=1)[0]
 
 def GetRandomEmail():
+
     pass
 
 def GetRandomPersonalChoices(idx : int):

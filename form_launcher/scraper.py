@@ -4,12 +4,20 @@ from selenium.webdriver.common.by import By
 import chromedriver_autoinstaller
 import time
 import json
+import undetected_chromedriver as uc
+from selenium.webdriver.chrome.options import Options
 
 class WebScraper:
     def __init__(self, url, fname) -> None:
+        options = Options()
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_experimental_option('excludeSwitches', ['enable-automation'])
+        options.add_experimental_option('useAutomationExtension', False)
+        options.add_argument("start-maximized")
+
         self.fname = fname
         self.url = url
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome(options=options)
         self.entries = []
 
     def navigate_to_url(self):
