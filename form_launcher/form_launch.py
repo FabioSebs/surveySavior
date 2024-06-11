@@ -16,7 +16,6 @@ class GFormFiller(WebScraper):
         iterator = 0
 
         for _ in range(7): # 6 sections - the last one (personal info is seperate logic)
-            
             # find form and loop through questions
             section_one_form = self.driver.find_elements(By.CSS_SELECTOR, "div.lrKTG div.o3Dpx div.Qr7Oae")
             for question in section_one_form:
@@ -36,7 +35,7 @@ class GFormFiller(WebScraper):
                 iterator += 1
 
 
-        
+            time.sleep(10)
             # go next section
             next_buttons = self.driver.find_elements(By.CSS_SELECTOR, "div.uArJ5e") 
             for button in next_buttons:
